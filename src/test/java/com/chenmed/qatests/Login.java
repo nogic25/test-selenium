@@ -4,7 +4,7 @@ import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//clic Alt+Enter to import method
+//click Alt+Enter to import method
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 
@@ -23,17 +23,17 @@ public class Login {
 //
         System.setProperty("webdriver.chrome.driver", "C://Windows/chromedriver.exe");
         driver = new ChromeDriver();
-        wait=new WebDriverWait(driver,10);
+        wait=new WebDriverWait(driver,5);
     }
 
     @Test
     public void testNumberOne() {
 
-        driver.get("https://stgdash.chenmed.com/PMR/logon.htm");
-        driver.findElementById("username").sendKeys("anastasiyam");
-        driver.findElement(By.id("password")).sendKeys("Tigger33");
-        driver.findElementByClassName("logon").click();
-        wait.until(titleIs("My Work"));
+        driver.get("https://www.google.com");
+        driver.findElement(By.name("q")).sendKeys("london");
+        driver.findElement(By.name("btnG")).click();
+        System.out.println(driver.getTitle());
+        wait.until(titleIs("Google"));
         //driver.findElement(By.linkText("Appointment")).click();
     }
 
