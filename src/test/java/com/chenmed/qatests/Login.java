@@ -1,11 +1,15 @@
 package com.chenmed.qatests;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//click Alt+Enter to import method
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
+
+//click Alt+Enter to import method
 
 
 /**
@@ -14,15 +18,15 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 public class Login {
 
     private WebDriverWait wait;
-    private ChromeDriver driver;
+    private FirefoxDriver driver;
 
 
     @Before
     public void setup() {
         //web driver is an interface driver is an object
 //
-        System.setProperty("webdriver.chrome.driver", "C://Windows/chromedriver.exe");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.gecko.driver", "C://Windows/geckodriver.exe");
+        driver = new FirefoxDriver();
         wait=new WebDriverWait(driver,5);
     }
 
