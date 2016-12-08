@@ -22,6 +22,7 @@ public class Firefox_access {
         System.setProperty("webdriver.chrome.driver", "C://Windows/chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
+
     }
 
     @Test
