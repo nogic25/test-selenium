@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
+
 /**
  * Created by anastasiyam on 12/7/2016.
  */
@@ -32,8 +34,8 @@ public class Firefox_access {
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
-        System.out.println(driver.getTitle());
-        //wait.until(titleIs("Google"));
+        //System.out.println(driver.getTitle());
+        wait.until(titleIs("Google"));
         //driver.findElement(By.linkText("Appointment")).click();
     }
 
