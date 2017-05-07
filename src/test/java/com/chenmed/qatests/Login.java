@@ -1,53 +1,29 @@
 package com.chenmed.qatests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
-
-//click Alt+Enter to import method
-
+import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
- * Created by anastasiyam on 11/25/2016.
+ * Created by anastasiyam on 12/19/2016.
  */
 public class Login {
 
-    private WebDriverWait wait;
-    private FirefoxDriver driver;
+    private ChromeDriver _driver;
 
-
-    @Before
-    public void setup() {
-        //web driver is an interface driver is an object
-//
-        System.setProperty("webdriver.gecko.driver", "C://Windows/geckodriver.exe");
-        driver = new FirefoxDriver();
-        wait=new WebDriverWait(driver,5);
+    public Login(ChromeDriver driver) {
+      this._driver = driver;
     }
 
-    @Test
-    public void testNumberOne() {
+    public String enter(String url,String username, String password){
 
-        driver.get("https://www.google.com");
-        driver.findElement(By.name("q")).sendKeys("london");
-        driver.findElement(By.name("btnG")).click();
-        System.out.println(driver.getTitle());
-        wait.until(titleIs("Google"));
-        //driver.findElement(By.linkText("Appointment")).click();
+        _driver.get(url);
+        _driver.findElement(By.name("username")).sendKeys(username);
+        _driver.findElement(By.name("password")).sendKeys(password);
+        _driver.findElement(By.name("login")).click();
+
+        String title = _driver.getTitle();
+        System.out.println(title);
+
+        return title;
     }
-
-
-    @After
-    public void stop() {
-        driver.close();
-        driver=null;
-    }
-
-
-
 }

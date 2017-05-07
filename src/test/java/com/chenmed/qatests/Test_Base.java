@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,6 +18,7 @@ public class Test_Base {
 
     public WebDriverWait wait;
     public ChromeDriver driver;
+    public By bySearchButton = By.name("login");
 
     @Before
     public void setup() {
@@ -24,16 +26,19 @@ public class Test_Base {
         System.setProperty("webdriver.chrome.driver", "C://Windows/chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
-    }
 
+    }
     @Test
     public void loginAs() {
         //how to change String to Character
+
         driver.get("http://localhost/litecart/public_html/admin/login.php");
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
-        driver.findElement(By.name("login")).click();
-        System.out.println(driver.getTitle());
+        WebElement element=driver.findElement(bySearchButton) ;
+        System.out.println(element.getCssValue("color"));
+        System.out.println(element.getAttribute("border"));
+        element.click();
         wait.until(titleIs("My Store"));
         driver.findElement(By.xpath(".//*[@id='sidebar']/div[2]/a[1]/i")).click();
         System.out.println(driver.getTitle());

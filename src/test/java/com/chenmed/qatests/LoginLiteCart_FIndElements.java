@@ -49,7 +49,7 @@ public class LoginLiteCart_FIndElements  {
             if (driver.findElements(By.cssSelector("ul#box-aaps-menu li.selected ul li")).size()!=0){
                 int newCount=driver.findElements(By.cssSelector("ul#box-aaps-menu li.selected ul li")).size();
                 for(int l=0;l<newCount;l++){
-                    driver.findElements(By.cssSelector("ul#box-apps-menu li#app-")).get(l).click();
+                    driver.findElements(By.cssSelector("ul#box-aaps-menu li.selected ul li")).get(l).click();
 
                     System.out.println(driver.findElement(By.tagName("h1")).getText());
                 }
